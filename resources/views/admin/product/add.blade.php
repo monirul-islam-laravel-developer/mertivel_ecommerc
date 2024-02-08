@@ -38,7 +38,7 @@
                                 <div class="row mb-3">
                                     <label for="inputEmail3" class="col-md-2 col-form-label">Title</label>
                                     <div class="col-md-10">
-                                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="inputEmail3" placeholder="Product Name"/>
+                                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{old('title')}}"  id="inputEmail3" placeholder="Product Name"/>
                                         @error('title')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
@@ -183,7 +183,7 @@
                                 <div class="row mb-3">
                                     <label for="inputEmail3" class="col-md-2 col-form-label">Sort Description</label>
                                     <div class="col-md-10">
-                                        <textarea  class="form-control @error('sort_description') is-invalid @enderror" name="sort_description"  id="inputEmail3" placeholder="Product Sort Description"></textarea>
+                                        <textarea  class="form-control @error('sort_description') is-invalid @enderror" name="sort_description"  id="summernote3" placeholder="Product Sort Description"></textarea>
                                         @error('sort_description')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
@@ -193,7 +193,7 @@
                                 <div class="row mb-3">
                                     <label for="inputEmail3" class="col-md-2 col-form-label">Details</label>
                                     <div class="col-md-10">
-                                        <textarea  class="form-control @error('detail') is-invalid @enderror" name="detail"  id="inputEmail3" placeholder="Product Detail"></textarea>
+                                        <textarea  class="form-control @error('detail') is-invalid @enderror" name="detail"  id="summernote2" placeholder="Product Detail"></textarea>
                                         @error('detail')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
@@ -202,7 +202,7 @@
                                 <div class="row mb-3">
                                     <label for="inputEmail3" class="col-md-2 col-form-label">More Details</label>
                                     <div class="col-md-10">
-                                        <textarea  class="form-control @error('more_detail') is-invalid @enderror" name="more_detail"  id="inputEmail3" placeholder="Product More Detail"></textarea>
+                                        <textarea  class="form-control @error('more_detail') is-invalid @enderror" name="more_detail"  id="summernote" placeholder="Product More Detail"></textarea>
                                         @error('more_detail')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
@@ -282,6 +282,20 @@
             });
 
 
+        });
+    </script>
+    <script>
+        $('#summernote').summernote({
+            tabsize: 2,
+            height: 300
+        });
+        $('#summernote2').summernote({
+            tabsize: 2,
+            height: 300
+        });
+        $('#summernote3').summernote({
+            tabsize: 2,
+            height: 150
         });
     </script>
 

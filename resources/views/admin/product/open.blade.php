@@ -36,44 +36,44 @@
                             <table id="alternative-page-datatable" class="table table-striped dt-responsive nowrap w-100">
                                <tr>
                                    <td>Product Title</td>
-                                   <td>1</td>
+                                   <td>{{$product->title}}</td>
                                </tr>
                                 <tr>
                                    <td>Category Name</td>
-                                   <td>1</td>
+                                   <td>{{$product->category->category_name}}</td>
                                </tr> <tr>
                                    <td>SubCategory Name</td>
-                                   <td>1</td>
+                                   <td>{{$product->subcategory->name}}</td>
                                </tr>
                                 <tr>
                                    <td>Brand Name</td>
-                                   <td></td>
+                                   <td>{{$product->brand->title}}</td>
                                </tr> <tr>
                                    <td>Unit Name</td>
-                                   <td></td>
+                                   <td>{{$product->unit->name}}</td>
                                </tr>
                                 <tr>
                                    <td>Product Size</td>
-                                   <td>1</td>
+                                   <td>{{$product->size}}</td>
                                </tr> <tr>
                                    <td>Product Color</td>
-                                   <td>1</td>
+                                   <td>{{$product->color}}</td>
                                </tr>
                                 <tr>
                                    <td>Condition</td>
-                                   <td>1</td>
+                                   <td>{{$product->condition}}</td>
                                </tr> <tr>
                                    <td>Regular Price</td>
-                                   <td>1</td>
+                                   <td>Tk.{{$product->regular_price}}</td>
                                </tr> <tr>
                                    <td>Selling Price</td>
-                                   <td>1</td>
+                                   <td>Tk.{{$product->selling_price}}</td>
                                </tr> <tr>
                                    <td>Product Code</td>
-                                   <td>1</td>
+                                   <td>{{$product->code}}</td>
                                </tr> <tr>
                                    <td>Stock Amount</td>
-                                   <td>1</td>
+                                   <td>{{$product->stock_amount}}</td>
                                </tr> <tr>
                                    <td>Short Description</td>
                                    <td>1</td>
@@ -85,7 +85,7 @@
                                    <td>1</td>
                                </tr> <tr>
                                    <td>Image</td>
-                                   <td>1</td>
+                                   <td><img src="{{asset($product->image)}}" alt="" width="150" height="120"></td>
                                </tr>
                                 <tr>
                                    <td>More Image</td>
@@ -93,9 +93,9 @@
                                </tr>
                                 <tr>
                                    <td>Status</td>
-                                   <td>1</td>
+                                   <td>{{$product->status==1 ? 'active' : 'inactive'}}</td>
                                </tr>
-                                
+
                             </table>
                         </div> <!-- end preview-->
                     </div> <!-- end tab-content-->
