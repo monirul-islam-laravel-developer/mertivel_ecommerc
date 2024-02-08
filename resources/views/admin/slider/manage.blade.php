@@ -38,6 +38,7 @@
                                 <tr>
                                     <th>S.N</th>
                                     <th>Title</th>
+                                    <th>Description</th>
                                     <th>Image</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -48,6 +49,7 @@
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
                                         <td>{{$slider->title}}</td>
+                                        <td>{{$slider->short_description}}</td>
                                         <td>
                                             <img src="{{asset($slider->image)}}" alt="" style="height: 80px">
                                         </td>

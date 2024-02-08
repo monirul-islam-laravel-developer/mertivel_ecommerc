@@ -11,31 +11,15 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::where('parent_id', 0)->get();
-        return view('admin.category.index', compact('categories'));
+        return view('admin.category.index');
     }
 
     public function create(Request $request)
     {
-        $request->validate([
-            'category_name' => 'required|max:255',
-            'parent_id' => 'required',
-            'description' => 'required'
+        $validatedData = $request->validate([
+            'category_name' => ['required', 'unique:categories', 'max:255'],
         ]);
-        $category = new Category();
-        $category->parent_id = $request->parent_id;
-        $category->category_name = $request->category_name;
-        $category->slug = Str::slug($request->category_name);
-        $category->description = $request->description;
-        if ($request->status == 1)
-        {
-            $category->status = $request->status;
-        }
-        else
-        {
-            $category->status = 2;
-        }
-        $category->save();
+       Category::newCategory($request);
         Alert::success('Category Added Successfully', '');
         return redirect()->back();
     }
@@ -49,26 +33,12 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::find($id);
-        $categories = Category::where('parent_id', 0)->get();
-        return view('admin.category.edit', compact('category', 'categories'));
+        return view('admin.category.edit', compact('category'));
     }
 
     public function update(Request $request, $id)
     {
-        $category = Category::find($id);
-        $category->parent_id = $request->parent_id;
-        $category->category_name = $request->category_name;
-        $category->slug = Str::slug($request->category_name);
-        $category->description = $request->description;
-        if ($request->status == 1)
-        {
-            $category->status = $request->status;
-        }
-        else
-        {
-            $category->status = '2';
-        }
-        $category->save();
+        Category::updateCategory($request,$id);
         Alert::success('Category update successfully', '');
         return redirect()->route('category.manage');
     }
@@ -76,19 +46,9 @@ class CategoryController extends Controller
     public function delete($id)
     {
         $category = Category::find($id);
-        $subCategories = Category::where('parent_id', $category->id)->get();
-//        dd($category->news);
-        foreach ($subCategories as $item)
+        if (file_exists($category->image))
         {
-            $item->delete();
-        }
-        foreach ($category->news as $data)
-        {
-            if (file_exists($data->image))
-            {
-                unlink($data->image);
-            }
-            $data->delete();
+            unlink($category->image);
         }
         $category->delete();
         Alert::success('Category delete Successfully', '');

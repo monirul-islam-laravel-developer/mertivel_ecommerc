@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('category_name');
             $table->string('slug');
             $table->longText('description')->nullable();
-            $table->integer('parent_id')->default(0);
             $table->tinyInteger('status' )->default(1);
             $table->timestamps();
         });

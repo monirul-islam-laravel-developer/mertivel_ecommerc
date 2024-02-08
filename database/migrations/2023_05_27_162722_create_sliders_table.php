@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->text('short_description')->nullable();
             $table->text('image')->nullable();
+            $table->text('link')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

@@ -38,6 +38,7 @@ class SliderController extends Controller
         $slider = new Slider();
         $slider->title = $request->title;
         $slider->short_description = $request->short_description;
+        $slider->link =$request->link;
         if ($request->status)
         {
             $slider->status = $request->status;
@@ -76,6 +77,7 @@ class SliderController extends Controller
         }
         $slider->title = $request->title;
         $slider->short_description = $request->short_description;
+        $slider->link = $request->link;
         if ($request->status)
         {
             $slider->status = $request->status;

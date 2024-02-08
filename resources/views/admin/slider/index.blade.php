@@ -36,8 +36,8 @@
                             <form action="{{route('slider.new')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Title</label>
-                                    <div class="col-10">
+                                    <label for="inputEmail3" class="col-md-2 col-form-label">Title</label>
+                                    <div class="col-md-10">
                                         <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="inputEmail3" placeholder="Slider name"/>
                                         @error('title')
                                         <div class="alert alert-danger">{{ $message }}</div>
@@ -45,25 +45,44 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label class="col-2 col-form-label">Image</label>
-                                    <div class="col-10">
+                                    <label for="inputEmail3" class="col-md-2 col-form-label">Description</label>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control @error('short_description') is-invalid @enderror" name="short_description" id="inputEmail3" placeholder="Short Description"/>
+                                        @error('title')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputEmail3" class="col-md-2 col-form-label">Link</label>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control @error('link') is-invalid @enderror" name="link" id="inputEmail3" placeholder="Product Link"/>
+                                        @error('link')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-md-2 col-form-label">Image</label>
+                                    <div class="col-md-10">
                                         <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="exampleInputPassword1">
                                         @error('image')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
+
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Status</label>
-                                    <div class="col-10">
+                                    <label for="inputEmail3" class="col-md-2 col-form-label">Status</label>
+                                    <div class="col-md-10">
                                         {{--                                        <input type="checkbox" id="switch1" name="status" @if($notice->status == 1) checked @endif data-switch="bool"/>--}}
                                         <input type="checkbox" id="switch1" value="1" class="form-control" name="status" data-switch="bool"/>
                                         <label for="switch1" data-on-label="On" data-off-label="Off"></label>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label"></label>
-                                    <div class="col-10">
+                                    <label for="inputEmail3" class="col-md-2 col-form-label"></label>
+                                    <div class="col-md-10">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
                                 </div>

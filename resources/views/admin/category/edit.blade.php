@@ -36,22 +36,8 @@
                             <form action="{{route('category.update', ['id' => $category->id])}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Under Category</label>
-                                    <div class="col-10">
-                                        <select name="parent_id" id="parent_id" class="form-control @error('parent_id') is-invalid @enderror">
-                                            <option value="0">Main Category</option>
-                                            @foreach($categories as $categorya)
-                                                <option value="{{$categorya->id}}"  @if($categorya->id == $category->parent_id) selected @endif>{{$categorya->category_name}}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('parent_id')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Category Name</label>
-                                    <div class="col-10">
+                                    <label for="inputEmail3" class="col-md-2 col-form-label">Category Name</label>
+                                    <div class="col-md-10">
                                         <input type="text" value="{{$category->category_name}}" class="form-control @error('category_name') is-invalid @enderror" name="category_name" id="inputEmail3" placeholder="Category name"/>
                                         @error('category_name')
                                         <div class="alert alert-danger">{{ $message }}</div>
@@ -59,8 +45,8 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Description</label>
-                                    <div class="col-10">
+                                    <label for="inputEmail3" class="col-md-2 col-form-label">Description</label>
+                                    <div class="col-md-10">
                                         <textarea type="text" name="description" class="form-control @error('description') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Enter Short Description">{{$category->description}}</textarea>
                                         @error('description')
                                         <div class="alert alert-danger">{{ $message }}</div>
@@ -68,16 +54,26 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Status</label>
-                                    <div class="col-10">
+                                    <label class="col-md-2 col-form-label">Image</label>
+                                    <div class="col-md-10">
+                                        <input type="file" class="form-control" name="image">
+                                        <img src="{{asset($category->image)}}" alt="" height="150" width="120">
+                                        @error('description')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputEmail3" class="col-md-2 col-form-label">Status</label>
+                                    <div class="col-md-10">
                                         {{--                                        <input type="checkbox" id="switch1" name="status" @if($notice->status == 1) checked @endif data-switch="bool"/>--}}
                                         <input type="checkbox" id="switch{{$category->id}}" class="form-control" value="1" @if($category->status == 1) checked @endif name="status" data-switch="bool"/>
                                         <label for="switch{{$category->id}}" data-on-label="On" data-off-label="Off"></label>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label"></label>
-                                    <div class="col-10">
+                                    <label for="inputEmail3" class="col-md-2 col-form-label"></label>
+                                    <div class="col-md-10">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
                                 </div>

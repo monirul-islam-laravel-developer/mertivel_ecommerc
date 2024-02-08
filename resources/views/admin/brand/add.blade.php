@@ -23,7 +23,7 @@
                         </a>
                     </form>
                 </div>
-                <h4 class="page-title">Brand Add</h4>
+                <h4 class="page-title">Brand Add </h4>
             </div>
         </div>
     </div>

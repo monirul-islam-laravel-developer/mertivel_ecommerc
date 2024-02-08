@@ -36,8 +36,8 @@
                             <form action="{{route('privacy.update', ['id' => $privacy->id])}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Privacy & Policy</label>
-                                    <div class="col-10">
+                                    <label for="inputEmail3" class="col-md-2 col-form-label">Privacy & Policy</label>
+                                    <div class="col-md-10">
                                         <textarea type="text" id="summernote" name="privacy" class="form-control @error('privacy') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Enter privacy">{{$privacy->privacy}}</textarea>
                                         @error('privacy')
                                         <div class="alert alert-danger">{{ $message }}</div>
@@ -45,8 +45,8 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Condition</label>
-                                    <div class="col-10">
+                                    <label for="inputEmail3" class="col-md-2 col-form-label">Condition</label>
+                                    <div class="col-md-10">
                                         <textarea type="text" id="summernote2" name="condition" class="form-control @error('condition') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Enter condition">{{$privacy->condition}}</textarea>
                                         @error('condition')
                                         <div class="alert alert-danger">{{ $message }}</div>
@@ -54,16 +54,16 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Status</label>
-                                    <div class="col-10">
+                                    <label for="inputEmail3" class="col-md-2 col-form-label">Status</label>
+                                    <div class="col-md-10">
                                         {{--                                        <input type="checkbox" id="switch1" name="status" @if($notice->status == 1) checked @endif data-switch="bool"/>--}}
                                         <input type="checkbox" id="switch{{$privacy->id}}" class="form-control" value="1" @if($privacy->status == 1) checked @endif name="status" data-switch="bool"/>
                                         <label for="switch{{$privacy->id}}" data-on-label="On" data-off-label="Off"></label>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label"></label>
-                                    <div class="col-10">
+                                    <label for="inputEmail3" class="col-md-2 col-form-label"></label>
+                                    <div class="col-md-10">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
                                 </div>
